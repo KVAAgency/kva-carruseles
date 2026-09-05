@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Guía KVA2-5</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,460;9..144,560;9..144,640&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+:root{
+  --crema:#F4EFE6; --papel:#FBF9F4; --savia:#2F5D50; --savia7:#24473D;
+  --savia3:#6E9A8E; --terra:#C8663D; --terra7:#A8481F; --tinta:#1C2B27;
+  --gris:#6B6459; --gris2:#D9D2C5;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+@page{ size:A4; margin:0; }
+body{
+  font-family:'IBM Plex Sans',system-ui,sans-serif;
+  color:var(--tinta); background:var(--crema); font-size:14px; line-height:1.6;
+}
+.page{
+  width:210mm; min-height:297mm; padding:22mm 20mm;
+  background:var(--crema); position:relative; page-break-after:always;
+  display:flex; flex-direction:column;
+}
+.page:last-child{ page-break-after:auto; }
+
+.kicker{
+  font-family:'IBM Plex Sans'; font-weight:600; font-size:12px;
+  letter-spacing:.17em; text-transform:uppercase; color:var(--terra7);
+  margin-bottom:14px;
+}
+h1{ font-family:'Fraunces'; font-weight:560; font-size:34px; line-height:1.12;
+  letter-spacing:-.01em; color:var(--savia7); }
+h1.xl{ font-size:40px; }
+h2{ font-family:'Fraunces'; font-weight:460; font-size:22px; line-height:1.2;
+  color:var(--savia7); margin-bottom:10px; }
+p.lead{ font-size:17px; line-height:1.5; color:var(--tinta); margin-top:14px; max-width:145mm; }
+p{ margin-top:10px; max-width:150mm; }
+.small{ font-size:12px; color:var(--gris); }
+
+/* --- motivo "el encuadre" (corchetes) --- */
+.corner{ position:absolute; width:22mm; height:22mm; }
+.corner svg{ width:100%; height:100%; }
+.corner.tl{ top:14mm; left:14mm; }
+.corner.br{ bottom:14mm; right:14mm; transform:rotate(180deg); }
+
+/* --- portada --- */
+.cover{ align-items:flex-start; justify-content:center; }
+.cover .logo{ width:64mm; margin-bottom:16mm; }
+.cover h1{ font-size:44px; max-width:150mm; }
+.cover p.lead{ font-size:19px; max-width:140mm; }
+.cover .footer{ position:absolute; bottom:22mm; left:20mm; right:20mm;
+  display:flex; justify-content:space-between; align-items:center;
+  font-family:'IBM Plex Mono'; font-size:11px; color:var(--gris); letter-spacing:.02em; }
+.cover .footer .dot{ width:8px; height:8px; border-radius:50%; background:var(--terra); display:inline-block; margin-right:8px; }
+
+/* --- comparación 2 columnas --- */
+.compare{ display:flex; gap:8mm; margin-top:16px; }
+.compare .col{ flex:1; background:var(--papel); border:1px solid var(--gris2);
+  border-radius:4px; padding:14px 16px; }
+.compare .col .tag{ font-family:'IBM Plex Mono'; font-size:11px; letter-spacing:.06em;
+  text-transform:uppercase; color:var(--terra7); margin-bottom:6px; display:block; }
+.compare .col h3{ font-family:'Fraunces'; font-weight:500; font-size:17px; color:var(--savia7); margin-bottom:6px; }
+.compare .col p{ font-size:13px; margin-top:0; color:var(--tinta); }
+
+/* --- pasos --- */
+.step{ display:flex; gap:14px; margin-top:22px; align-items:flex-start; }
+.step .n{ font-family:'IBM Plex Mono'; font-weight:500; font-size:26px; color:var(--terra);
+  min-width:38px; line-height:1; padding-top:2px; }
+.step .body h3{ font-family:'Fraunces'; font-weight:500; font-size:18px; color:var(--savia7); margin-bottom:4px; }
+.step .body p{ font-size:13.5px; margin-top:0; color:var(--tinta); max-width:140mm; }
+
+/* --- cierre / CTA --- */
+.closing{ align-items:flex-start; justify-content:center; }
+.ctabox{ margin-top:20px; background:var(--savia7); color:var(--crema); border-radius:6px;
+  padding:22px 24px; max-width:150mm; }
+.ctabox .tag{ font-family:'IBM Plex Mono'; font-size:11px; letter-spacing:.08em;
+  text-transform:uppercase; color:var(--terra); display:block; margin-bottom:8px; }
+.ctabox p{ color:var(--crema); font-size:15px; margin-top:0; }
+.ctabox strong{ font-family:'IBM Plex Mono'; color:#fff; }
+
+hr.rule{ border:none; border-top:1px solid var(--gris2); margin:18px 0; width:100%; max-width:150mm; }
+
+.pagefoot{ margin-top:auto; padding-top:14mm; display:flex; justify-content:space-between;
+  font-family:'IBM Plex Mono'; font-size:10.5px; color:var(--gris); letter-spacing:.02em; }
+</style>
+</head>
+<body>
+
+<!-- ============ PÁGINA 1 — PORTADA ============ -->
+<div class="page cover">
+  <div class="corner tl">
+    <svg viewBox="0 0 100 100" fill="none" stroke="#2F5D50" stroke-width="7" stroke-linejoin="round" stroke-linecap="butt">
+      <path d="M 38 8 L 8 8 L 8 38"/>
+      <path d="M 62 92 L 92 92 L 92 62"/>
+      <circle cx="50" cy="50" r="5" fill="#C8663D"/>
+    </svg>
+  </div>
+
+  <div class="logo">
+    <svg viewBox="0 0 525 174" width="100%" xmlns="http://www.w3.org/2000/svg">
+      <g transform="translate(12,12.00) scale(1.5000)">
+        <g fill="none" stroke="#2F5D50" stroke-width="12" stroke-linejoin="round" stroke-linecap="butt">
+          <path d="M 45 20 L 20 20 L 20 45"/>
+          <path d="M 55 80 L 80 80 L 80 55"/>
+        </g>
+        <circle cx="50" cy="50" r="8" fill="#C8663D"/>
+      </g>
+      <text x="220" y="105" font-family="Fraunces" font-weight="460" font-size="92" fill="#2F5D50" letter-spacing="-1.5">KVA</text>
+      <text x="222" y="140" font-family="'IBM Plex Sans'" font-weight="500" font-size="26" fill="#2F5D50" letter-spacing="2">agency</text>
+    </svg>
+  </div>
+
+  <span class="kicker">Guía Sistema KVA2‑5</span>
+  <h1 class="xl">Por qué tu próxima campaña<br>necesita ser dos campañas</h1>
+  <p class="lead">El paso a paso para dejar de correr un solo anuncio genérico y empezar
+    a calibrar tu campaña distinto para <strong>captar propiedades</strong> y para
+    <strong>venderlas</strong>.</p>
+
+  <div class="footer">
+    <span><span class="dot"></span>KVA Agency — Solo inmobiliarias.</span>
+    <span>Sistema KVA2‑5</span>
+  </div>
+</div>
+
+<!-- ============ PÁGINA 2 — EL ERROR ============ -->
+<div class="page">
+  <span class="kicker">Lo que veo a diario</span>
+  <h1>Ya probaste anuncios.<br>El problema no fue la plataforma.</h1>
+
+  <p class="lead">Le pusiste presupuesto a una campaña, corrió unas semanas, y los
+    contactos que llegaron no servían. La conclusión más común es que la publicidad en
+    redes no funciona para tu zona.</p>
+
+  <p>Pero el problema casi nunca es la plataforma. Es correr <strong>una sola campaña
+    amplia y genérica</strong> — en vez de dos, cada una hablándole solo a su público:
+    uno quiere vender su propiedad, el otro quiere comprar una — dos personas con una
+    urgencia, un lenguaje y una pregunta completamente distintas.</p>
+
+  <div class="compare">
+    <div class="col">
+      <span class="tag">Quiere vender · Captación</span>
+      <h3>Piensa en su patrimonio</h3>
+      <p>Le preocupa la urgencia de encontrar un comprador serio, no perder tiempo con
+        curiosos, y no "regalar" su propiedad por necesidad.</p>
+    </div>
+    <div class="col">
+      <span class="tag">Quiere comprar · Venta</span>
+      <h3>Piensa en la propiedad</h3>
+      <p>Le importa el barrio, el precio, si el financiamiento le alcanza, y si esa
+        propiedad puntual resuelve lo que está buscando.</p>
+    </div>
+  </div>
+
+  <p style="margin-top:20px">Cuando una sola campaña intenta cubrir a los dos con el
+    mismo mensaje amplio, ninguno se siente entendido — y el formulario se llena de
+    contactos que no van a ningún lado.</p>
+
+  <hr class="rule">
+  <p class="small">Esto es lo primero que reviso al auditar una cuenta que "ya probó
+    publicidad y no funcionó": casi nunca es un problema de presupuesto.</p>
+
+  <div class="pagefoot"><span>Guía KVA2‑5</span><span>02</span></div>
+</div>
+
+<!-- ============ PÁGINA 3 — LOS PASOS ============ -->
+<div class="page">
+  <span class="kicker">El paso a paso</span>
+  <h1>Cinco pasos antes de lanzar<br>tu próxima campaña</h1>
+
+  <div class="step">
+    <span class="n">01</span>
+    <div class="body">
+      <h3>Separá el objetivo antes de escribir una sola palabra de copy</h3>
+      <p>¿Esta campaña es para conseguir propietarios que quieran vender, o compradores
+        que quieran comprar? Definilo primero. Nunca los dos en el mismo anuncio.</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <span class="n">02</span>
+    <div class="body">
+      <h3>Cambiá el mensaje según el objetivo</h3>
+      <p>Una campaña de captación habla del riesgo de vender solo o mal, y de encontrar
+        un comprador serio rápido. Una campaña de venta habla de la propiedad, el barrio
+        y el financiamiento. Son dos conversaciones distintas.</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <span class="n">03</span>
+    <div class="body">
+      <h3>Poné el filtro antes del contacto, no después</h3>
+      <p>Una pregunta o formulario que separe a quien tiene intención real de quien solo
+        está mirando, para no perder tiempo — ni el tuyo ni el de tu equipo — en
+        conversaciones que no van a cerrar.</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <span class="n">04</span>
+    <div class="body">
+      <h3>Medí por resultado, no por "me gusta"</h3>
+      <p>Cuántos propietarios reales contactaron, cuántas visitas se agendaron. El
+        alcance y los likes se ven bien en un reporte, pero no pagan comisiones.</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <span class="n">05</span>
+    <div class="body">
+      <h3>Respondé rápido — es la variable que más pesa</h3>
+      <p>Un lead calificado que espera horas se enfría. La velocidad de respuesta pesa
+        más en el resultado final que casi cualquier ajuste que le hagas a la campaña.</p>
+    </div>
+  </div>
+
+  <div class="pagefoot"><span>Guía KVA2‑5</span><span>03</span></div>
+</div>
+
+<!-- ============ PÁGINA 4 — CIERRE ============ -->
+<div class="page closing">
+  <span class="kicker">Siguiente paso</span>
+  <h1>Esto es el principio<br>del Sistema KVA2‑5</h1>
+
+  <p class="lead">Armar la campaña calibrada completa — segmentación, creativos,
+    formulario y seguimiento, distintos para captación y para venta — es exactamente lo
+    que hacemos con cada cuenta que tomamos.</p>
+
+  <div class="ctabox">
+    <span class="tag">Coordinemos 20 minutos</span>
+    <p>Si querés ver cómo se aplicaría esto a tu zona y a tu cartera actual,
+      escribime <strong>"LLAMADA"</strong> por acá mismo y coordinamos una llamada de
+      20 minutos para revisar tu caso puntual — sin costo, sin compromiso.</p>
+  </div>
+
+  <div class="corner br">
+    <svg viewBox="0 0 100 100" fill="none" stroke="#2F5D50" stroke-width="7" stroke-linejoin="round" stroke-linecap="butt">
+      <path d="M 38 8 L 8 8 L 8 38"/>
+      <path d="M 62 92 L 92 92 L 92 62"/>
+      <circle cx="50" cy="50" r="5" fill="#C8663D"/>
+    </svg>
+  </div>
+
+  <div class="pagefoot"><span>KVA Agency — Solo inmobiliarias.</span><span>Sistema KVA2‑5</span></div>
+</div>
+
+</body>
+</html>
