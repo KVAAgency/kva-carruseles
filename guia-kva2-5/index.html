@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Guía KVA2-5 — Dos campañas, no una</title>
+<title>Guía paso a paso — Sistema KVA2-5</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,460;9..144,560;9..144,640&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
 
@@ -23,9 +23,21 @@ header.hero{ padding:56px 0 40px; }
 .logo{ width:150px; margin-bottom:36px; }
 .kicker{ font-family:'IBM Plex Sans'; font-weight:600; font-size:12px;
   letter-spacing:.15em; text-transform:uppercase; color:var(--terra7); margin-bottom:14px; }
+.kicker.doble{ display:block; }
+.kicker .sep{ color:var(--gris); font-weight:400; margin:0 6px; }
 h1{ font-family:'Fraunces'; font-weight:560; font-size:32px; line-height:1.15;
   letter-spacing:-.01em; color:var(--savia7); }
 .lead{ font-size:18px; line-height:1.5; margin-top:16px; color:var(--tinta); }
+
+/* índice */
+.indice{ margin-top:28px; background:var(--papel); border:1px solid var(--gris2);
+  border-radius:8px; padding:18px 20px; }
+.indice .tag{ font-family:'IBM Plex Mono'; font-size:11px; letter-spacing:.06em;
+  text-transform:uppercase; color:var(--terra7); display:block; margin-bottom:10px; }
+.indice ol{ list-style:none; counter-reset:idx; }
+.indice li{ counter-increment:idx; font-size:14.5px; padding:6px 0; display:flex; gap:10px; }
+.indice li::before{ content:counter(idx); font-family:'IBM Plex Mono'; font-weight:500;
+  color:var(--terra); min-width:16px; }
 
 section{ padding:36px 0; border-top:1px solid var(--gris2); }
 h2{ font-family:'Fraunces'; font-weight:460; font-size:24px; color:var(--savia7);
@@ -41,11 +53,32 @@ p{ margin-top:12px; font-size:16px; }
 .compare .col h3{ font-family:'Fraunces'; font-weight:500; font-size:18px; color:var(--savia7); margin-bottom:6px; }
 .compare .col p{ font-size:14.5px; margin-top:0; }
 
+/* caja de dato / fuente externa */
+.dato{ margin-top:20px; display:flex; gap:16px; align-items:flex-start;
+  background:#fff; border-left:3px solid var(--terra); border-radius:0 8px 8px 0;
+  padding:16px 18px; }
+.dato .cifra{ font-family:'IBM Plex Mono'; font-weight:500; font-size:30px;
+  color:var(--terra7); line-height:1; min-width:64px; }
+.dato .txt{ font-size:14px; }
+.dato .txt .fuente{ display:block; margin-top:4px; font-size:11.5px; color:var(--gris); }
+.dato .txt .fuente a{ color:var(--gris); }
+
 .step{ display:flex; gap:16px; margin-top:26px; align-items:flex-start; }
 .step .n{ font-family:'IBM Plex Mono'; font-weight:500; font-size:26px; color:var(--terra);
   min-width:38px; line-height:1.3; }
 .step .body h3{ font-family:'Fraunces'; font-weight:500; font-size:18px; color:var(--savia7); margin-bottom:4px; }
 .step .body p{ font-size:15px; margin-top:0; }
+
+/* checklist final */
+.checklist{ margin-top:20px; background:var(--papel); border:1px solid var(--gris2);
+  border-radius:8px; padding:20px 22px; }
+.checklist .tag{ font-family:'IBM Plex Mono'; font-size:11px; letter-spacing:.06em;
+  text-transform:uppercase; color:var(--terra7); display:block; margin-bottom:12px; }
+.checklist ul{ list-style:none; }
+.checklist li{ display:flex; gap:10px; font-size:14.5px; padding:8px 0;
+  border-top:1px solid var(--gris2); }
+.checklist li:first-child{ border-top:none; }
+.checklist li .box{ font-family:'IBM Plex Mono'; color:var(--savia); font-size:16px; }
 
 .closing{ padding:40px 0 64px; }
 .ctabox{ margin-top:18px; background:var(--savia7); color:var(--crema); border-radius:10px;
@@ -55,9 +88,12 @@ p{ margin-top:12px; font-size:16px; }
 .ctabox p{ color:var(--crema); font-size:16px; margin-top:0; }
 .ctabox strong{ font-family:'IBM Plex Mono'; color:#fff; }
 
-footer{ padding:24px 0 48px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px;
+footer{ padding:24px 0 48px; border-top:1px solid var(--gris2); }
+footer .marca{ display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px;
   font-family:'IBM Plex Mono'; font-size:11px; color:var(--gris); letter-spacing:.02em;
-  border-top:1px solid var(--gris2); }
+  margin-bottom:16px; }
+footer .fuentes{ font-size:11px; color:var(--gris); line-height:1.8; }
+footer .fuentes a{ color:var(--gris); }
 </style>
 </head>
 <body>
@@ -75,11 +111,23 @@ footer{ padding:24px 0 48px; display:flex; justify-content:space-between; flex-w
       <text x="220" y="105" font-family="Fraunces" font-weight="460" font-size="92" fill="#2F5D50" letter-spacing="-1.5">KVA</text>
       <text x="222" y="140" font-family="'IBM Plex Sans'" font-weight="500" font-size="26" fill="#2F5D50" letter-spacing="2">agency</text>
     </svg>
-    <span class="kicker">Guía Sistema KVA2‑5</span>
+    <span class="kicker doble">Guía paso a paso <span class="sep">·</span> Sistema KVA2‑5</span>
     <h1>Por qué tu próxima campaña necesita ser dos campañas</h1>
-    <p class="lead">El paso a paso para dejar de correr un solo anuncio genérico y
-      empezar a calibrar tu campaña distinto para <strong>captar propiedades</strong>
-      y para <strong>venderlas</strong>.</p>
+    <p class="lead">Esta es la guía que pediste. El paso a paso completo para dejar de
+      correr un solo anuncio genérico y empezar a calibrar tu campaña distinto para
+      <strong>captar propiedades</strong> y para <strong>venderlas</strong> —
+      con datos reales de la industria, no solo opinión.</p>
+
+    <div class="indice">
+      <span class="tag">En esta guía vas a encontrar</span>
+      <ol>
+        <li>Por qué una sola campaña genérica no funciona</li>
+        <li>Qué piensa un propietario distinto de un comprador</li>
+        <li>5 pasos concretos para calibrar tu próxima campaña</li>
+        <li>Qué dicen los datos sobre velocidad de respuesta</li>
+        <li>Una checklist para revisar antes de lanzar</li>
+      </ol>
+    </div>
   </header>
 
   <section>
@@ -110,6 +158,15 @@ footer{ padding:24px 0 48px; display:flex; justify-content:space-between; flex-w
 
     <p>Cuando una sola campaña les habla igual a los dos, ninguno se siente
       entendido — y el formulario se llena de contactos que no van a ningún lado.</p>
+
+    <div class="dato">
+      <span class="cifra">2×</span>
+      <div class="txt">Separar la campaña por audiencia (vendedor vs. comprador), con
+        mensaje y creativo propios para cada una, es práctica documentada en la
+        industria — no una preferencia nuestra.
+        <span class="fuente">Fuente: <a href="https://leadsbridge.com/blog/facebook-lead-generation-for-real-estate/" target="_blank" rel="noopener">LeadsBridge, guía de generación de leads inmobiliarios en Facebook</a></span>
+      </div>
+    </div>
   </section>
 
   <section>
@@ -163,6 +220,39 @@ footer{ padding:24px 0 48px; display:flex; justify-content:space-between; flex-w
           pesa más en el resultado final que casi cualquier ajuste a la campaña.</p>
       </div>
     </div>
+
+    <div class="dato">
+      <span class="cifra">78%</span>
+      <div class="txt">de los leads convertidos terminan siendo del agente que
+        respondió primero — no del que tenía el mejor anuncio.
+        <span class="fuente">Fuente: <a href="https://agentzap.ai/blog/real-estate-lead-statistics" target="_blank" rel="noopener">AgentZap, estadísticas de respuesta a leads inmobiliarios</a></span>
+      </div>
+    </div>
+
+    <div class="dato">
+      <span class="cifra">4×</span>
+      <div class="txt">más probabilidad de conversión al responder en el primer
+        minuto, comparado con esperar solo un minuto más (2 minutos).
+        <span class="fuente">Fuente: <a href="https://caseyresponse.com/blog/lead-response-time-statistics" target="_blank" rel="noopener">CaseyResponse, estadísticas de tiempo de respuesta a leads</a></span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <span class="kicker">Antes de lanzar</span>
+    <h2>Checklist rápida</h2>
+    <p>Guardá esta página. Antes de tu próxima campaña, repasá estos cinco puntos:</p>
+
+    <div class="checklist">
+      <span class="tag">5 puntos, 2 minutos</span>
+      <ul>
+        <li><span class="box">☐</span> Definí si esta campaña es para captar o para vender — no las dos cosas.</li>
+        <li><span class="box">☐</span> Escribí un mensaje distinto para cada objetivo.</li>
+        <li><span class="box">☐</span> Puse una pregunta o formulario que filtre antes del primer contacto.</li>
+        <li><span class="box">☐</span> Definí qué vas a medir: contactos reales y visitas, no alcance.</li>
+        <li><span class="box">☐</span> Tenés un plan para responder en minutos, no en horas.</li>
+      </ul>
+    </div>
   </section>
 
   <section class="closing">
@@ -182,8 +272,15 @@ footer{ padding:24px 0 48px; display:flex; justify-content:space-between; flex-w
   </section>
 
   <footer>
-    <span>KVA Agency — Solo inmobiliarias.</span>
-    <span>Sistema KVA2‑5</span>
+    <div class="marca">
+      <span>KVA Agency — Solo inmobiliarias.</span>
+      <span>Sistema KVA2‑5</span>
+    </div>
+    <div class="fuentes">
+      Datos citados en esta guía: <a href="https://leadsbridge.com/blog/facebook-lead-generation-for-real-estate/" target="_blank" rel="noopener">LeadsBridge</a> ·
+      <a href="https://agentzap.ai/blog/real-estate-lead-statistics" target="_blank" rel="noopener">AgentZap</a> ·
+      <a href="https://caseyresponse.com/blog/lead-response-time-statistics" target="_blank" rel="noopener">CaseyResponse</a>.
+    </div>
   </footer>
 
 </div>
